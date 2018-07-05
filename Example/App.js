@@ -13,7 +13,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import MultiSelectView from './index.1.js';
-import Usable from './Usable.js';
+
 var LoremIpsum = [
   'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
   'adipiscing', 'elit', 'curabitur', 'vel', 'hendrerit', 'libero',
@@ -57,18 +57,13 @@ export default class App extends Component{
       value:true,
     }
   }
-
-
   onTouch(){
     this.setState({value:!this.state.value});
   }
-
-
   render() {
     return (
       <View style={styles.container}>
-        <MultiSelectView/>
-        <Usable/>
+        <MultiSelectView data={LoremIpsum}/>
        </View>
     );
   }
