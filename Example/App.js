@@ -9,9 +9,11 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import MultiSelectView from './index.1.js';
+import Usable from './Usable.js';
 var LoremIpsum = [
   'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
   'adipiscing', 'elit', 'curabitur', 'vel', 'hendrerit', 'libero',
@@ -47,11 +49,27 @@ var LoremIpsum = [
 
 
 export default class App extends Component{
+    
+  constructor(props){
+    super(props);
+    this.onTouch=this.onTouch.bind(this);
+    this.state={
+      value:true,
+    }
+  }
+
+
+  onTouch(){
+    this.setState({value:!this.state.value});
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
         <MultiSelectView/>
-      </View>
+        <Usable/>
+       </View>
     );
   }
 }
@@ -62,6 +80,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    marginTop:10,
+    borderWidth:1,
   },
   welcome: {
     fontSize: 20,
@@ -73,4 +93,7 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  space:{
+    marginBottom:10,
+  }
 });

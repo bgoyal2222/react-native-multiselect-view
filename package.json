@@ -24,8 +24,8 @@
     "url": "https://github.com/bgoyal2222/react-native-multiselect-view/issues"
   },
   "dependencies": {
-    "react-native-vector-icons": "^4.4.2",
-    "prop-types": "^15.5.7"
+    "prop-types": "^15.5.7",
+    "react-native-vector-icons": "^4.6.0"
   },
   "peerDependencies": {
     "react-native": ">=0.44.0"
