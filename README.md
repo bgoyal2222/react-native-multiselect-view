@@ -75,16 +75,15 @@ Inside your component's render method, use MultiSelectView:
 
 Props              | Type     | Optional | Default     | Description
 ----------------- | -------- | -------- | ----------- | -----------
-style  | ViewPropTypes.style  | true |   |   Custom style for container
-text | PropTypes.number && PropTypes.string  | false |   |  Text to be displayed in the container
-activeContainerStyle | PropTypes.object |true | backgroundColor: '#BDD358',borderColor: 'transparent'|Active Container Style
-inactiveContainerStyle| PropTypes.object | true |  |Inactive Container Style
-activeTextStyle | PropTypes.object |true | color: '#fff'  | Active Text Style
-inactiveTextStyle | PropTypes.object | true |   | Inactive Text Style
-checked  |  PropTypes.bool  | False  |  | Checked State
-activeIcon |  PropTypes.element  | true  |  Icon  | Active Container Icon
-inactiveIcon |  PropTypes.element |  true  |  false  | Inactive Text Icon
-onSelectionStatusChange  |  PropTypes.func |  true  |  | OnClick Function
+activeContainerStyle | View.propTypes.style |true | backgroundColor: '#BDD358',borderColor: 'transparent'|Active or selected Container Style
+inactiveContainerStyle| View.propTypes.style | true |  |Inactive Container Style
+activeTextStyle | Text.propTypes.style |true | color: '#fff'  | Style for Active Text
+inactiveTextStyle | Text.propTypes.style | true |   | Style for Inactive Text 
+activeIcon |  PropTypes.element  | true  |  Icon  |  Icon for Active Container
+inactiveIcon |  PropTypes.element |  true  |  false  | Icon for Inactive Container 
+onSelectionStatusChange  |  PropTypes.func |  true  |  | Function to perform on any item selection state change 
+valueKey | PropTypes.string |  false if data is array of object  |   | Text or key to show in container
+data    |  PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]) |  false  |   | Array of list to be displayed
 
 
 
