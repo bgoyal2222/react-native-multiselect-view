@@ -35,7 +35,7 @@ Add `react-native-multiselect-view` to your js file.
 Inside your component's render method, use MultiSelectView:   
 
 
- ### Example 1  
+### Example 1  
 
 ```javascript
 <MultiSelectView
@@ -43,9 +43,10 @@ Inside your component's render method, use MultiSelectView:
     onSelectionStatusChange={this.onSelectionStatusChange}
     data={LoremIpsum}
     valueKey={'value'}
-/>```
+/>
+```
 
- ### Example 2
+### Example 2
 
 ```javascript
 <MultiSelectView
@@ -55,9 +56,10 @@ Inside your component's render method, use MultiSelectView:
     inactiveContainerStyle={styles.inactiveCom}
     activeTextStyle={styles.activeText}
     inactiveTextStyle={styles.inactiveText}
-/>```
+/>
+```
 
-  ### Example 3
+### Example 3
 
 ```javascript
 <MultiSelectView
@@ -65,7 +67,8 @@ Inside your component's render method, use MultiSelectView:
     data={LoremIpsum2}
     activeIcon={<Ionicons name='md-checkmark-circle' size={16} style={styles.icon} />}
     inactiveIcon={<Ionicons name='md-log-in' size={16} style={styles.icon} />}
-/>```
+/>
+```
 
 ## API
 
@@ -81,7 +84,8 @@ inactiveTextStyle | PropTypes.object | true |   | Inactive Text Style
 checked  |  PropTypes.bool  | False  |  | Checked State
 activeIcon |  PropTypes.element  | true  |  Icon  | Active Container Icon
 inactiveIcon |  PropTypes.element |  true  |  false  | Inactive Text Icon
-onTouch   |  PropTypes.func |  false  |  | OnClick Function
+onSelectionStatusChange  |  PropTypes.func |  true  |  | OnClick Function
+
 
 
 
