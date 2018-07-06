@@ -7,17 +7,17 @@
 
 
 
-Checkbox component for react native, it works on iOS and Android.
+MultiSelectView component for react native to select multiple items smoothly with minimum efforts, it works on iOS and Android like a charm.
 
 ## Content
-<!-- - [Demo](#demo) -->
+- [Demo](#demo)
 - [Installation](#installation)
 - [Getting started](#getting-started)
 <!-- - [API](#api) -->
 
-<!-- ## Demo  
+## Demo  
 
-![Screenshots](https://github.com/bgoyal2222/react-native-checkbox-component/blob/master/Screenshot/react-native-custom-check-box.gif) -->
+![Screenshots](https://github.com/bgoyal2222/react-native-multiselect-view/blob/master/demo.gif)
 
 ## Installation
 
