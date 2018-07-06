@@ -35,54 +35,54 @@ Add `react-native-multiselect-view` to your js file.
 Inside your component's render method, use MultiSelectView:   
 
 
-<!-- ### Basic usage  
+ ### Example 1  
 
 ```javascript
-<CheckBox
-    style={{flex: 1, padding: 10}}
-    onClick={()=>this.onClick(data)}
-    isChecked={data.checked}
-    leftText={leftText}
-/>;
-```
+<MultiSelectView
+    ref='list1'
+    onSelectionStatusChange={this.onSelectionStatusChange}
+    data={LoremIpsum}
+    valueKey={'value'}
+/>```
 
-### Custom CheckBox   
+ ### Example 2
 
 ```javascript
-renderCheckBox(data) {
-    var leftText = data.name;
-    return (
-    <CheckBox
-        style={{flex: 1, padding: 10}}
-        onClick={()=>this.onClick(data)}
-        isChecked={data.checked}
-        leftText={leftText}
-        checkedComponent={<Text>1</Text>}
-        unCheckedComponent={<Text>0</Text>}
-    />);
-}
-```
+<MultiSelectView
+    ref='list2'
+    data={LoremIpsum1}
+    activeContainerStyle={styles.activeCom}
+    inactiveContainerStyle={styles.inactiveCom}
+    activeTextStyle={styles.activeText}
+    inactiveTextStyle={styles.inactiveText}
+/>```
+
+  ### Example 3
+
+```javascript
+<MultiSelectView
+    ref='list3'
+    data={LoremIpsum2}
+    activeIcon={<Ionicons name='md-checkmark-circle' size={16} style={styles.icon} />}
+    inactiveIcon={<Ionicons name='md-log-in' size={16} style={styles.icon} />}
+/>```
 
 ## API
 
 
 Props              | Type     | Optional | Default     | Description
 ----------------- | -------- | -------- | ----------- | -----------
-style  | ViewPropTypes.style  | true |   |   Custom style checkbox
-leftText | PropTypes.string |true |   | Custom left Text
-leftTextStyle  |  Text.propTypes.style | true |  | Custom left Text style
-rightText | PropTypes.string |true |   | Custom right Text
-rightTextView | PropTypes.element | true |   | Custom right TextView
-rightTextStyle  | Text.propTypes.style | true |  | Custom right Text style
-checkedComponent  |  PropTypes.element  | true  | Icon | Custom  checked Component
-unCheckedComponent  |  PropTypes.element  | true  |  Icon  | Custom  unchecked Component
-isChecked  |  PropTypes.bool |  false  |  false  | checkbox checked state
-onClick   |  PropTypes.func |  false  |  | callback  function
-index | PropTypes.number |false| |key to return in onClick callback
-disabled  |  PropTypes.bool            | true  |  false | Disable the checkbox button
-checkBoxColor | PropTypes.string | true |   | Tint color of the checkbox image (this props is for both checked and unchecked state)
-checkedCheckBoxColor | PropTypes.string | true |   | Tint color of the checked state checkbox image (this prop will override value of `checkBoxColor` for checked state)
-uncheckedCheckBoxColor | PropTypes.string | true |   | Tint color of the unchecked state checkbox image (this prop will override value of `checkBoxColor` for unchecked state) -->
+style  | ViewPropTypes.style  | true |   |   Custom style for container
+text | PropTypes.number && PropTypes.string  | false |   |  Text to be displayed in the container
+activeContainerStyle | PropTypes.object |true | backgroundColor: '#BDD358',borderColor: 'transparent'|Active Container Style
+inactiveContainerStyle| PropTypes.object | true |  |Inactive Container Style
+activeTextStyle | PropTypes.object |true | color: '#fff'  | Active Text Style
+inactiveTextStyle | PropTypes.object | true |   | Inactive Text Style
+checked  |  PropTypes.bool  | False  |  | Checked State
+activeIcon |  PropTypes.element  | true  |  Icon  | Active Container Icon
+inactiveIcon |  PropTypes.element |  true  |  false  | Inactive Text Icon
+onTouch   |  PropTypes.func |  false  |  | OnClick Function
+
 
 
 
