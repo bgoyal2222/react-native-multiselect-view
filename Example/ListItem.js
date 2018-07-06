@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Dimensions, View, StyleSheet, Alert, onPress, TouchableOpacity, ScrollView, Text } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PropTypes from 'prop-types';
 
 export default class ListItem extends PureComponent {
 
@@ -18,12 +19,12 @@ export default class ListItem extends PureComponent {
 		const { text, activeContainerStyle, activeTextStyle, inactiveContainerStyle, inactiveTextStyle, checked, activeComponent, inactiveComponent } = this.props;
 		return (
 			<TouchableOpacity onPress={this.onTouch}>
-				{checked ? <View style={[styles.container, { backgroundColor: '#BDD358', borderColor: 'transparent' }]}>
-					<Text numberOfLines={1} style={[styles.text, { color: 'white' }]}>{text}</Text>
+				{checked ? <View style={[styles.container, { backgroundColor: '#BDD358', borderColor: 'transparent' },activeContainerStyle]}>
+					<Text numberOfLines={1} style={[styles.text, { color: 'white' },activeTextStyle]}>{text}</Text>
 					<Ionicons name='md-close' color={'white'} size={16} style={styles.icon}/>
 				</View> :
-					<View style={[styles.container, { backgroundColor: '#f8f8f8' }]}>
-						<Text numberOfLines={1} style={[styles.text, { color: 'black' }]}>{text}</Text>
+					<View style={[styles.container, { backgroundColor: '#f8f8f8' },inactiveContainerStyle]}>
+						<Text numberOfLines={1} style={[styles.text, { color: 'black' },inactiveTextStyle]}>{text}</Text>
 						<Ionicons name='md-add' color={'black'} size={16} style={styles.icon}/>
 					</View>}
 			</TouchableOpacity>
@@ -31,10 +32,21 @@ export default class ListItem extends PureComponent {
 	}
 }
 
+ListItem.propTypes = {
+	...TouchableOpacity.propTypes,
+	text : PropTypes.string,
+	activeContainerStyle : PropTypes.object,
+	inactiveContainerStyle : PropTypes.object,
+	activeTextStyle: PropTypes.object,
+	inactiveTextStyle: PropTypes.object,
+	checked: PropTypes.bool.isRequired,
+	activeComponent: PropTypes.element,
+	inactiveComponent: PropTypes.element,
+}
+
 
 const styles = StyleSheet.create(
 	{
-
 		container: {
 			paddingVertical: 5,
 			marginTop: 10,

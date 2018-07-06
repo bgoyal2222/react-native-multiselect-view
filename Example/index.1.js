@@ -28,10 +28,6 @@ export default class MultiSelectView extends Component {
 			data: []
 		}
 	}
-	static propTypes = {
-		...(ViewPropTypes || View.PropTypes),
-		data: PropTypes.array
-	}
 	static getDerivedStateFromProps(nextProps, nextState) {
 		if (JSON.stringify(this.props) !== JSON.stringify(nextProps)) {
 			const { data } = nextProps;
@@ -62,6 +58,17 @@ export default class MultiSelectView extends Component {
 		);
 	}
 }
+
+
+MultiSelectView.propTypes = {
+	...ListItem.propTypes,
+	data:PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.number),
+		PropTypes.arrayOf(PropTypes.string),
+		]).isRequired,
+}
+
+
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',

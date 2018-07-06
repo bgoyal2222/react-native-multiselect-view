@@ -90,5 +90,10 @@ const styles = StyleSheet.create({
   },
   space:{
     marginBottom:10,
+  },
+
+  obj1:{
+    backgroundColor:'red',
   }
+
 });
