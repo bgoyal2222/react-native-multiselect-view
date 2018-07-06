@@ -1,7 +1,7 @@
 # react-native-multiselect-view
-<!-- 
-[ ![release](https://img.shields.io/badge/release-v1.0.3-blue.svg?maxAge=2592000?style=flat-square)](https://github.com/bgoyal2222/react-native-multiselect-view/releases)
-[ ![NPM version](https://img.shields.io/badge/npm%20package-v1.0.3-green.svg?style=flat)](https://www.npmjs.com/package/react-native-multiselect-view) -->
+
+[ ![release](https://img.shields.io/badge/release-v1.0.0-blue.svg?maxAge=2592000?style=flat-square)](https://github.com/bgoyal2222/react-native-multiselect-view/releases)
+[ ![NPM version](https://img.shields.io/badge/npm%20package-v1.0.0-green.svg?style=flat)](https://www.npmjs.com/package/react-native-multiselect-view)
 [ ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/bgoyal2222/react-native-multiselect-view/pulls)
 [![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://github.com/bgoyal2222/react-native-multiselect-view/blob/master/LICENSE)
 
