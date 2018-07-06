@@ -13,9 +13,10 @@ MultiSelectView component for react native to select multiple items smoothly wit
 - [Demo](#demo)
 - [Installation](#installation)
 - [Getting started](#getting-started)
-<!-- - [API](#api) -->
+- [API](#api)
 
 ## Demo  
+* [Examples](https://github.com/bgoyal2222/react-native-multiselect-view/tree/master/Example)
 
 ![Screenshots](https://github.com/bgoyal2222/react-native-multiselect-view/blob/master/demo.gif)
 
