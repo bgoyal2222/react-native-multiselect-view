@@ -16,16 +16,16 @@ export default class ListItem extends PureComponent {
 	}
 
 	render() {
-		const { text, activeContainerStyle, activeTextStyle, inactiveContainerStyle, inactiveTextStyle, checked, activeComponent, inactiveComponent } = this.props;
+		const { text, activeContainerStyle, activeTextStyle, inactiveContainerStyle, inactiveTextStyle, checked, activeIcon, inactiveIcon } = this.props;
 		return (
 			<TouchableOpacity onPress={this.onTouch}>
-				{checked ? <View style={[styles.container, { backgroundColor: '#BDD358', borderColor: 'transparent' },activeContainerStyle]}>
-					<Text numberOfLines={1} style={[styles.text, { color: 'white' },activeTextStyle]}>{text}</Text>
-					<Ionicons name='md-close' color={'white'} size={16} style={styles.icon}/>
+				{checked ? <View style={[styles.container, styles.activeContainer, activeContainerStyle]}>
+					<Text numberOfLines={1} style={[styles.text, styles.activeText, activeTextStyle]}>{text}</Text>
+					{activeIcon ? activeIcon : <Ionicons name='md-close' size={16} style={[styles.icon,styles.activeText]} />}
 				</View> :
-					<View style={[styles.container, { backgroundColor: '#f8f8f8' },inactiveContainerStyle]}>
-						<Text numberOfLines={1} style={[styles.text, { color: 'black' },inactiveTextStyle]}>{text}</Text>
-						<Ionicons name='md-add' color={'black'} size={16} style={styles.icon}/>
+					<View style={[styles.container, inactiveContainerStyle]}>
+						<Text numberOfLines={1} style={[styles.text, inactiveTextStyle]}>{text}</Text>
+						{inactiveIcon ? inactiveIcon : <Ionicons name='md-add'  size={16} style={[styles.icon,styles.text]} />}
 					</View>}
 			</TouchableOpacity>
 		);
@@ -34,14 +34,15 @@ export default class ListItem extends PureComponent {
 
 ListItem.propTypes = {
 	...TouchableOpacity.propTypes,
-	text : PropTypes.string,
-	activeContainerStyle : PropTypes.object,
-	inactiveContainerStyle : PropTypes.object,
+	text: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+	activeContainerStyle: PropTypes.object,
+	inactiveContainerStyle: PropTypes.object,
 	activeTextStyle: PropTypes.object,
 	inactiveTextStyle: PropTypes.object,
 	checked: PropTypes.bool.isRequired,
-	activeComponent: PropTypes.element,
-	inactiveComponent: PropTypes.element,
+	activeIcon: PropTypes.element,
+	inactiveIcon: PropTypes.element,
+	onTouch: PropTypes.func.isRequired
 }
 
 
@@ -54,18 +55,26 @@ const styles = StyleSheet.create(
 			paddingLeft: 10,
 			flexDirection: 'row',
 			justifyContent: 'space-between',
-			alignItems:'center',
+			alignItems: 'center',
 			borderWidth: 1,
-			borderRadius:2
+			borderRadius: 2,
+			backgroundColor: '#f8f8f8'
+		},
+		activeContainer: {
+			backgroundColor: '#BDD358',
+			borderColor: 'transparent'
+		},
+		activeText: {
+			color: '#fff'
 		},
 		text: {
 			fontSize: 16,
 			color: 'black',
 			paddingRight: 10
 		},
-		icon:{
-			marginTop:3,
-			width:20,
+		icon: {
+			marginTop: 3,
+			width: 20,
 
 		}
 

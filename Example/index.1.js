@@ -46,13 +46,16 @@ export default class MultiSelectView extends Component {
 		const { data } = this.state;
 		data[index].checked = status;
 		this.setState({ data });
+		if (this.props.onSelectionStatusChange) {
+			this.props.onSelectionStatusChange(status, index);
+		}
 	}
 	render() {
 		const { data } = this.state;
 		return (
 			<ScrollView>
 				<View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1, padding: 15 }}>
-					{data.map((item, index) => <ListItem key={index} index={index} text={item.value} checked={item.checked} onTouch={this.onTouch} />)}
+					{data.map((item, index) => <ListItem key={index} index={index} text={item.value} checked={item.checked} onTouch={this.onTouch} {...this.props} />)}
 				</View>
 			</ScrollView>
 		);
@@ -61,11 +64,17 @@ export default class MultiSelectView extends Component {
 
 
 MultiSelectView.propTypes = {
-	...ListItem.propTypes,
-	data:PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.number),
-		PropTypes.arrayOf(PropTypes.string),
-		]).isRequired,
+	...TouchableOpacity.propTypes,
+	activeContainerStyle: PropTypes.object,
+	inactiveContainerStyle: PropTypes.object,
+	activeTextStyle: PropTypes.object,
+	inactiveTextStyle: PropTypes.object,
+	activeComponent: PropTypes.element,
+	inactiveComponent: PropTypes.element,
+	onSelectionStatusChange: PropTypes.func,
+	data: PropTypes.arrayOf(
+		PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+	).isRequired,
 }
 
 
