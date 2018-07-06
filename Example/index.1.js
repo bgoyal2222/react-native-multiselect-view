@@ -33,7 +33,6 @@ export default class MultiSelectView extends Component {
 		data: PropTypes.array
 	}
 	static getDerivedStateFromProps(nextProps, nextState) {
-		console.log(this.props, nextProps, nextState);
 		if (JSON.stringify(this.props) !== JSON.stringify(nextProps)) {
 			const { data } = nextProps;
 			const oldData = this.props == undefined ? [] : this.props.data;

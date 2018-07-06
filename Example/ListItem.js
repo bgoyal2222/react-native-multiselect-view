@@ -1,43 +1,31 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Dimensions, View, StyleSheet, Alert, onPress, TouchableOpacity, ScrollView, Text } from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default class ListItem extends Component {
+export default class ListItem extends PureComponent {
 
 	constructor(props) {
 		super(props);
 		this.onTouch = this.onTouch.bind(this);
-		this.state = {
-			checked: false
-		}
 	}
 
 	onTouch() {
-		const { checked } = this.state;
-		this.setState({ checked: !checked });
-		this.props.onTouch(!checked, this.props.index);
+		const { checked, index, onTouch } = this.props;
+		onTouch(!checked, index);
 	}
 
-	static getDerivedStateFromProps(nextProps, nextState) {
-		if (JSON.stringify(this.props) !== JSON.stringify(nextProps)) {
-			const { checked } = nextProps;
-			return { checked };
-		}
-	}
 	render() {
-		const { checked } = this.state;
-		const { text, style, props, TextStyle, ContainerStyle } = this.props;
+		const { text, activeContainerStyle, activeTextStyle, inactiveContainerStyle, inactiveTextStyle, checked, activeComponent, inactiveComponent } = this.props;
 		return (
 			<TouchableOpacity onPress={this.onTouch}>
-				<View style={[styles.mainContainer, style]}>
-					<View style={[styles.container, { backgroundColor: checked ? 'green' : 'white', borderColor: checked ? 'transparent' : 'black' }, ContainerStyle]}>
-						<Text numberOfLines={1} style={[styles.text, { color: checked ? 'white' : 'black' }, TextStyle]}>{text}</Text>
-						{checked ?
-							<Entypo name='cross' color={'white'} size={20} /> :
-							<Entypo name='plus' color={'black'} size={20} />
-						}
-					</View>
-				</View>
+				{checked ? <View style={[styles.container, { backgroundColor: '#BDD358', borderColor: 'transparent' }]}>
+					<Text numberOfLines={1} style={[styles.text, { color: 'white' }]}>{text}</Text>
+					<Ionicons name='md-close' color={'white'} size={16} style={styles.icon}/>
+				</View> :
+					<View style={[styles.container, { backgroundColor: '#f8f8f8' }]}>
+						<Text numberOfLines={1} style={[styles.text, { color: 'black' }]}>{text}</Text>
+						<Ionicons name='md-add' color={'black'} size={16} style={styles.icon}/>
+					</View>}
 			</TouchableOpacity>
 		);
 	}
@@ -46,24 +34,27 @@ export default class ListItem extends Component {
 
 const styles = StyleSheet.create(
 	{
-		mainContainer: {
-			backgroundColor: 'transparent',
-		},
 
 		container: {
 			paddingVertical: 5,
 			marginTop: 10,
 			marginRight: 10,
-			paddingHorizontal: 10,
-			borderWidth: 1,
+			paddingLeft: 10,
 			flexDirection: 'row',
 			justifyContent: 'space-between',
+			alignItems:'center',
+			borderWidth: 1,
+			borderRadius:2
 		},
-
 		text: {
 			fontSize: 16,
 			color: 'black',
 			paddingRight: 10
+		},
+		icon:{
+			marginTop:3,
+			width:20,
+
 		}
 
 	});
