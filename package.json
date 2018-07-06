@@ -1,7 +1,7 @@
 {
   "name": "react-native-multiselect-view",
-  "version": "0.0.3",
-  "description": "Custom list component for react native, it works on iOS and Android like a charm.",
+  "version": "1.0.0",
+  "description": "Custom multi list component for react native, it works on iOS and Android like a charm.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
