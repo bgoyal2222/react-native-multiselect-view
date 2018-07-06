@@ -21,11 +21,11 @@ export default class ListItem extends PureComponent {
 			<TouchableOpacity onPress={this.onTouch}>
 				{checked ? <View style={[styles.container, styles.activeContainer, activeContainerStyle]}>
 					<Text numberOfLines={1} style={[styles.text, styles.activeText, activeTextStyle]}>{text}</Text>
-					{activeIcon ? activeIcon : <Ionicons name='md-close' size={16} style={[styles.icon,styles.activeText]} />}
+					{activeIcon ? activeIcon : <Ionicons name='md-close' size={16} style={[styles.icon,styles.activeText,activeTextStyle]} />}
 				</View> :
 					<View style={[styles.container, inactiveContainerStyle]}>
 						<Text numberOfLines={1} style={[styles.text, inactiveTextStyle]}>{text}</Text>
-						{inactiveIcon ? inactiveIcon : <Ionicons name='md-add'  size={16} style={[styles.icon,styles.text]} />}
+						{inactiveIcon ? inactiveIcon : <Ionicons name='md-add'  size={16} style={[styles.icon,styles.text,inactiveTextStyle]} />}
 					</View>}
 			</TouchableOpacity>
 		);
