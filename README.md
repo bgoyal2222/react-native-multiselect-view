@@ -86,7 +86,8 @@ valueKey | PropTypes.string |  false if data is array of object  |   | Text or k
 data    |  PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]) |  false  |   | Array of list to be displayed
 
 
-
+##Other popular components
+https://github.com/bgoyal2222/react-native-checkbox-component
 
 
 
