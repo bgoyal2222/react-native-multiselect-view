@@ -11,7 +11,8 @@ import {
 	StyleSheet,
 	View,
 	Text,
-	TouchableOpacity
+	TouchableOpacity,
+	ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import ListItem from './ListItem';
@@ -84,8 +85,8 @@ export default class MultiSelectView extends Component {
 
 MultiSelectView.propTypes = {
 	...TouchableOpacity.propTypes,
-	activeContainerStyle: View.propTypes.style,
-	inactiveContainerStyle: View.propTypes.style,
+	activeContainerStyle: ViewPropTypes.style,
+	inactiveContainerStyle: ViewPropTypes.style,
 	activeTextStyle: Text.propTypes.style,
 	inactiveTextStyle: Text.propTypes.style,
 	activeIcon: PropTypes.element,
