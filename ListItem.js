@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, ViewPropTypes } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 
@@ -35,8 +35,8 @@ export default class ListItem extends PureComponent {
 ListItem.propTypes = {
 	...TouchableOpacity.propTypes,
 	text: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-	activeContainerStyle: View.propTypes.style,
-	inactiveContainerStyle: View.propTypes.style,
+	activeContainerStyle: ViewPropTypes.style,
+	inactiveContainerStyle: ViewPropTypes.style,
 	activeTextStyle: Text.propTypes.style,
 	inactiveTextStyle: Text.propTypes.style,
 	checked: PropTypes.bool.isRequired,
