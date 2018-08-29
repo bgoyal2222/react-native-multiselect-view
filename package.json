@@ -1,6 +1,6 @@
 {
   "name": "react-native-multiselect-view",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Custom multi list component for react native, it works on iOS and Android like a charm.",
   "main": "index.js",
   "scripts": {
