@@ -21,33 +21,22 @@ export default class MultiSelectView extends Component {
 	constructor(props) {
 		super(props);
 		this.onTouch = this.onTouch.bind(this);
+		let newData = [];
+		props.data.forEach(
+			(item) => {
+				if (typeof (item) != 'string' && typeof (item) != 'number') {
+					newData.push({ ...item, value: item[valueKey], checked: false });
+				}
+				else {
+					newData.push({ value: item, checked: false });
+				}
+			}
+		)
 		this.state = {
-			data: []
+			data: newData,
 		}
 	}
-	static getDerivedStateFromProps(nextProps, nextState) {
-		if (this.props == undefined || JSON.stringify(this.props.data) !== JSON.stringify(nextProps.data)) {
-			const { data, valueKey } = nextProps;
-			const oldData = this.props == undefined ? [] : this.props.data;
-			if (oldData.length != data.length) {
-				let newData = [];
-				data.forEach(
-					(item) => {
-						if (typeof (item) != 'string' && typeof (item) != 'number') {
-							newData.push({ ...item, value: item[valueKey], checked: false });
-						}
-						else {
-							newData.push({ value: item, checked: false });
-						}
-					}
-				)
-				return { data:newData };
-			}
-			else {
-				return { data };
-			}
-		}
-	}
+	
 	onTouch(status, index) {
 		const { data } = this.state;
 		data[index].checked = status;
